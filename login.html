@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, rgba(106,17,203,0.8), rgba(37,117,252,0.8)),
+                  url('history.jpg') no-repeat center center/cover;
+      background-blend-mode: overlay;
+    }
+    .login-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+    }
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .login-container button:hover {
+      background-color: #2575fc;
+    }
+    .login-container p {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .login-container a {
+      color: #6a11cb;
+      text-decoration: none;
+    }
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Log In</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="handleLogin()">Log In</button>
+    <p>Don't have an account? <a href="signUp.html">Sign Up</a></p>
+  </div>
+
+  <script>
+    async function handleLogin() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!username || !password) {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      try {
+        const response = await fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.token) {
+          alert("Login successful!");
+          localStorage.setItem("token", data.token);
+          window.location.href = "index.html";
+        } else {
+          alert(data.message || "Login failed!");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Unable to connect to server.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SignUp</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    }
+
+    .signup-container {
+      background-color: #ffffff;
+      width: 400px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .signup-container:hover {
+      transform: scale(1.05);
+    }
+
+    .signup-container h2 {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .signup-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .signup-container input:focus {
+      outline: none;
+      border-color: #6dd5ed;
+      box-shadow: 0 0 10px rgba(109, 213, 237, 0.7);
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6dd5ed;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .signup-container button:hover {
+      background-color: #4aa7d4;
+    }
+
+    .success-message, .error-message {
+      font-size: 1rem;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .success-message {
+      color: green;
+    }
+
+    .error-message {
+      color: red;
+    }
+
+    .signup-container p a {
+      color: #6dd5ed;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup-container p a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #6dd5ed;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #4aa7d4;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container" role="form" aria-labelledby="formTitle">
+    <h2 id="formTitle">Create Your Account</h2>
+    <input type="text" id="username" placeholder="Enter your username" aria-label="Username" />
+    <input type="email" id="email" placeholder="Enter your email" aria-label="Email" />
+    <input type="password" id="password" placeholder="Create a password" aria-label="Password" />
+    <button onclick="signUp()" aria-label="Sign Up Button">Sign Up</button>
+    <p class="success-message" id="successMessage">Account created successfully! Redirecting to login...</p>
+    <p class="error-message" id="errorMessage">Something went wrong.</p>
+    <p>Already registered? <a href="login.html">Log in</a></p>
+
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="Visit our LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="Visit our GitHub repository"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <script>
+    async function signUp() {
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      if (!username || !email || !password) {
+        errorMessage.textContent = "Please fill out all fields.";
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          successMessage.style.display = 'block';
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          errorMessage.textContent = result.error || "Registration failed.";
+          errorMessage.style.display = 'block';
+        }
+      } catch (error) {
+        errorMessage.textContent = "Failed to connect to the server.";
+        errorMessage.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
