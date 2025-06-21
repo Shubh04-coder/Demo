@@ -1,192 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #1f3ccd, #ffa0b8);
-      color: #333;
-    }
-    header {
-      height: 100vh;
-      background: url('hero-image.jpg') no-repeat center center/cover;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-      position: relative;
-      padding: 20px;
-    }
-    header h4 {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-    header h1 {
-      font-size: 3rem;
-      animation: fadeIn 1.5s ease-in;
-    }
-    header p {
-      font-size: 1.5rem;
-      margin: 10px 0;
-      animation: fadeIn 2s ease-in;
-    }
-    .button-group {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-      animation: fadeIn 2.5s ease-in;
-    }
-    .button-group button {
-      background-color: #ff416c;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.3s;
-    }
-    .button-group button:hover {
-      transform: scale(1.1);
-    }
-    header .social-icons {
-      position: absolute;
-      bottom: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    header .social-icons a {
-      color: white;
-      font-size: 1.5rem;
-      transition: transform 0.3s, color 0.3s;
-    }
-    header .social-icons a:hover {
-      transform: scale(1.2);
-      color: #ff416c;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      text-align: center;
-      padding: 0 1rem;
-    }
-    .card {
-      display: inline-block;
-      background: white;
-      margin: 1rem;
-      width: 300px;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .card h3 {
-      margin-bottom: 1rem;
-    }
-    .card .icon {
-      font-size: 2.5rem;
-      color: #ff416c;
-      margin-bottom: 1rem;
-    }
-    footer {
-      margin-top: 2rem;
-      padding: 1rem 0;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-    }
-    footer .social-icons {
-      margin-top: 1rem;
-    }
-    footer .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.2rem;
-      transition: color 0.3s, transform 0.3s;
-    }
-    footer .social-icons a:hover {
-      color: #ff416c;
-      transform: scale(1.2);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/Styles/SoS.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <title>SK Traders | Shubham verma Portfolio</title>
 </head>
+
 <body>
-  <header>
-    <h1>Hi, I'm Shubham</h1>
-    <p>Frontend Developer | Designer | Coder</p>
-    <div class="button-group">
-      <button onclick="scrollToSection()">Explore</button>
-      <button onclick="location.href='login.html'">Log In</button>
-      <button onclick="location.href='signUp.html'">Sign Up</button>
+  <section class="s1 flex jcsb aic">
+    <div class="circle"></div>
+    <header class="flex header">
+      <img src="/Images/LogoGt.png" alt="logo">
+      <H1 class="logo aic flex">Sk<span style="color:var(--orange); margin-left:10px;">Traders</span></H1>
+      <input type="checkbox" class="btn" name="checkbox" id="checkbox">
+      <label for="checkbox" class="grid aic" style="color:#fff">
+        <ion-icon name="grid-outline"></ion-icon>
+      </label>
+      </input>
+      <div class="nav flex aic">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ol>
+      </div>
+    </header>
+    <div class="content flex jcsb aic">
+      <div class="textbox">
+        <h1>Sk <span style="color:var(--orange);">Traders</span></h1>
+        <p>Chama, Renu market, titla, Kathitand, Tender Ratu Pincode: 835222 </p>
+        <a href="#">Know more</a>
+      </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="/Images/agriculture-pipes.png" alt="Agriculture-pipes"></div>
+          <div class="swiper-slide"><img src="/Images/astm.png" alt="astm"></div>
+          <div class="swiper-slide"><img src="/Images/casing-pipes.png" alt="Casing pipe"></div>
+          <div class="swiper-slide"><img src="/Images/sewerage.png" alt="Sewerage"></div>
+          <div class="swiper-slide"><img src="/Images/solvent.png" alt="Solvent"></div>
+          <div class="swiper-slide"><img src="/Images/swr.png" alt="SWR"></div>
+          <div class="swiper-slide"><img src="/Images/column-pipe.png" alt="Column pipe"></div>
+          <div class="swiper-slide"><img src="/Images/solvent-lubricant.png" alt="Lubricant"></div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <ol class="sci flex aic jcc">
+        <li>
+          <a href="#" id="facebook" class="a aic flex jcc">
+            <label for="facebook" class="invert"><ion-icon name="logo-facebook"></ion-icon>
+            </label>
+          </a>
+        <li>
+          <a href="#" id="Instagram" class="a flex aic jcc">
+            <label for="Instagram" class="invert"><ion-icon name="logo-instagram"></ion-icon>
+            </label>
+          </a>
+        </li>
+        <li>
+          <a href="#" id="LinkedIn" class="a flex aic jcc">
+            <label for="LinkedIn" class="invert"><ion-icon name="logo-linkedin"></ion-icon>
+            </label>
+          </a>
+        </li>
+      </ol>
     </div>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-      <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-    </div>
-  </header>
-
-  <div class="container" id="main-content">
-    <div class="card">
-      <i class="fas fa-user icon"></i>
-      <h3>About Me</h3>
-      <p>I am a passionate frontend developer with a love for design and coding!</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-code icon"></i>
-      <h3>My Skills</h3>
-      <p>HTML, CSS, JavaScript.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-envelope icon"></i>
-      <h3>Contact</h3>
-      <p>Email: shubhamkumarverma104@gmail.com</p>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 My Advanced Portfolio. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-      <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-    </div>
-  </footer>
-
+  </section>
+  <hr class="sectionborder">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script>
-    function scrollToSection() {
-      const section = document.getElementById('main-content');
-      if (section) {
-        window.scrollTo({
-          top: section.offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    }
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
   </script>
 </body>
+
 </html>
