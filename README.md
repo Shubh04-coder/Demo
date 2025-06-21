@@ -21,7 +21,7 @@ It includes login and signup functionality, animated buttons, and responsive des
 2. Open the `index.html` file in your browser.
 3. Or deploy the site using Netlify or GitHub Pages.
 
-## 📦 Folder Structure
+## 📦 Folder Structure.
 
 /index.html
 /login.html
